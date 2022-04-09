@@ -1,64 +1,58 @@
 import React from "react";
+import { Link } from "react-router-dom";
+// import { useState } from "react/cjs/react.production.min";
 
 const Register = () => {
+  // const [details, setDetails] = useState();
+
   return (
-    <div className="signin">
-      <div className="back-img">
-        <div className="sign-in-text">
-          <h2 className="active">Sign In</h2>
-          <h2 className="nonactive">Sign Up</h2>
+    <div className="login-box">
+      <h2>Register</h2>
+      <form>
+        {/* <div className="user-box">
+          <input type="text" name required />
+          <label>First Name</label>
         </div>
-        <div className="layer"></div>
-        <p className="point">▲</p>
-      </div>
-      <div className="form-section">
-        <form action="#">
-          {/*Email*/}
-          <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input className="mdl-textfield__input" type="email" id="email" />
-            <label className="mdl-textfield__label" htmlFor="email">
-              Email
-            </label>
-            <span className="mdl-textfield__error">Enter a correct Email</span>
-          </div>
-          <br />
-          <br />
-          {/*Password*/}
-          <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input
-              pattern=".{8,}"
-              className="mdl-textfield__input"
-              type="password"
-              id="sample3"
-            />
-            <label className="mdl-textfield__label" htmlFor="sample3">
-              Password
-            </label>
-            <span className="mdl-textfield__error">Minimum 8 characters</span>
-          </div>
-          <br />
-          <p className="forgot-text">Forgot Password ?</p>
-          {/*CheckBox*/}
-          <label
-            className="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
-            htmlFor="checkbox-1"
-          >
-            <input
-              type="checkbox"
-              id="checkbox-1"
-              className="mdl-checkbox__input"
-              defaultChecked
-            />
-            <span className="keep-text mdl-checkbox__label">
-              Keep me Signed In
-            </span>
-          </label>
-        </form>
-      </div>
-      <button className="sign-in-btn mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored">
-        Sign In
-      </button>
-      {/*/button*/}
+
+        <div className="user-box">
+          <input type="text" name required />
+          <label>Last Name</label>
+        </div> */}
+
+        <div className="user-box">
+          <input type="text" required />
+          <label>Username</label>
+        </div>
+
+        <div className="user-box">
+          <input type="email" required />
+          <label>Email</label>
+        </div>
+        {/* 
+        <div className="user-box">
+          <input type="tel" name required />
+          <label>Contact Number</label>
+        </div> */}
+
+        <div className="user-box">
+          <input type="password" required />
+          <label>Password</label>
+        </div>
+        <a href="#" className="submit text">
+          <span />
+          <span />
+          <span />
+          <span />
+          Submit
+        </a>
+
+        <p className="text font-size">
+          Already have an account?&nbsp;
+          <a href="/login" className="mini-btn font-size pointer-event">
+            Login
+          </a>
+        </p>
+      </form>
     </div>
   );
 };

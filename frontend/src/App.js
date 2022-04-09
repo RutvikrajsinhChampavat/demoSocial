@@ -1,17 +1,26 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Register from "./Components/Register/Register";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./Components/Login/Login";
+import ForgotPassword from "./Components/ForgotPassword/ForgotPassword";
+// import { BrowserRouter, Route, Routes } from "react-dom";
 
 function App() {
   return (
     <>
       {/* <BrowserRouter>
         <Routes>
-          <Route path="/register" component={Register} />
+          <Route path="/" component={Register} />
         </Routes>
       </BrowserRouter> */}
-      <Register />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+        </Routes>
+      </BrowserRouter>
+      {/* <Register /> */}
     </>
   );
 }
