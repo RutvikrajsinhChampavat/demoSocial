@@ -1,15 +1,22 @@
 import express from 'express';
 import console from 'console';
+import swaggerUi from 'swagger-ui-express';
+import dotenv from 'dotenv';
 import userRouter from './routes/user.route';
+import swaggerDocument from './swagger.json';
+
+dotenv.config();
 
 const app = express();
-// const swaggerDocument = YAML.load('../swagger.yaml'); TODO: r&d swagger
-// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+const port = process.env.PORT || 3080;
 app.use(userRouter);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 app.use('/*', () => {
   console.log('Not found');
 });
 
-app.listen(3080, () => {
-  console.log(`--- Spinning on 3080 with dev environment 💖 ---`);
+app.listen(port, () => {
+  console.log(`--- Spinning on ${port} with dev environment 💖 ---`);
 });
