@@ -1,17 +1,28 @@
 class UserController {
-  // constructor() {}
+  private db;
 
-  getAllUser(req: any, res: any) {
-    res.status(200).send({
-      message: 'All users found',
-    });
+  constructor(Database: any) {
+    this.db = new Database().getDb();
   }
 
-  getUserById(req: any, res: any) {
-    res.send({
-      code: 200,
-      message: 'All users found',
-    });
+  async getAllUser(req: any, res: any) {
+    const db = await this.db;
+    try {
+      const customers = db.collection('customers').insertOne({
+        name: 'tarak',
+        email: 'tarak@gmail.com',
+      });
+      res.send({
+        code: 200,
+        message: 'All users found',
+      });
+    } catch (error) {
+      res.send({
+        code: 500,
+        message: 'Error',
+        Data: error,
+      });
+    }
   }
 }
 

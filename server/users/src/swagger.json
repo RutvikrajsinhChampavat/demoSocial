@@ -1,0 +1,23 @@
+{
+  "swagger": "2.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Demo Social API",
+    "description": "Documentation for our app"
+  },
+  "host": "localhost:3080",
+  "basePath": "/api/v1/users",
+  "tags": [
+    {
+      "name": "Users",
+      "description": "User actions"
+    }
+  ],
+  "schemes": ["http", "https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/api/v1/users": {}
+  },
+  "definitions": {}
+}
