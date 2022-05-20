@@ -5,8 +5,8 @@
     "title": "Demo Social API",
     "description": "Documentation for our app"
   },
-  "host": "localhost:3080",
-  "basePath": "/api/v1/users",
+  "host": "localhost:8070",
+  "basePath": "/api/v1",
   "tags": [
     {
       "name": "Users",
@@ -17,7 +17,28 @@
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
-    "/api/v1/users": {}
+    "/add?sUserName={sUserName}&sEmail={sEmail}": {
+      "get": {
+        "description": "add User api",
+        "parameters": [
+          {
+            "name": "sUserName",
+            "in": "path",
+            "description": "UserName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sEmail",
+            "in": "path",
+            "description": "sEmail",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    }
   },
   "definitions": {}
 }

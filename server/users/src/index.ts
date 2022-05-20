@@ -1,22 +1,14 @@
-import express from 'express';
-import console from 'console';
-import swaggerUi from 'swagger-ui-express';
-import dotenv from 'dotenv';
-import userRouter from './routes/user.route';
-import swaggerDocument from './swagger.json';
+import cluster from 'cluster';
+import os from 'os';
+import App from './providers/App';
 
-dotenv.config();
+if (cluster.isPrimary) {
+  App.loadConfiguration();
 
-const app = express();
-const port = process.env.PORT || 3080;
-app.use(userRouter);
+  const CPUS: any = os.cpus();
+  CPUS.forEach(() => cluster.fork());
+} else {
+  App.loadDatabase();
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
-app.use('/*', () => {
-  console.log('Not found');
-});
-
-app.listen(port, () => {
-  console.log(`--- Spinning on ${port} with dev environment 💖 ---`);
-});
+  App.loadServer();
+}
