@@ -7,7 +7,7 @@ class Locals {
     dotenv.config({ path: path.join(__dirname, '../../.env') });
     const port = process.env.PORT || 8030;
     const maxUploadLimit = process.env.maxUploadLimit || '50mb';
-    const maxParameterLimit = process.env.maxUploadLimit || 1000;
+    const maxParameterLimit = process.env.maxParameterLimit || 1000;
     const mongooseUrl = process.env.DB_URL;
     const processId = process.pid || '';
 

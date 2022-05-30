@@ -3,6 +3,7 @@ import console from 'console';
 import Locals from './Locals';
 import Kernel from '../middlewares/Kernel';
 import UserRoutes from '../routes/User';
+import Handler from '../exception/Handler';
 
 class Express {
   public express: Application;
@@ -26,8 +27,14 @@ class Express {
     this.express = this.express.use('/api/v1', UserRoutes);
   }
 
+  private mountNotFountHandler(): void {
+    this.express = Handler.notFoundHandler(this.express);
+  }
+
   public init(): any {
     const { port } = Locals.config();
+    this.mountNotFountHandler();
+    this.express.use(Handler.errorHandler);
 
     this.express
       .listen(port, () =>
