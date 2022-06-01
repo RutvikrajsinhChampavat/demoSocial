@@ -10,6 +10,7 @@ class Locals {
     const maxParameterLimit = process.env.maxParameterLimit || 1000;
     const mongooseUrl = process.env.DB_URL;
     const processId = process.pid || '';
+    const secret = process.env.SECRET;
 
     return {
       port,
@@ -17,6 +18,7 @@ class Locals {
       maxParameterLimit,
       mongooseUrl,
       processId,
+      secret,
     };
   }
 
