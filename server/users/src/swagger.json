@@ -17,8 +17,8 @@
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
-    "/add?sUserName={sUserName}&sEmail={sEmail}": {
-      "get": {
+    "/new-user": {
+      "post": {
         "description": "add User api",
         "parameters": [
           {
